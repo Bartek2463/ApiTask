@@ -3,10 +3,10 @@ package com.example.apitask.service;
 import com.example.apitask.model.User;
 import com.example.apitask.model.dto.UserDto;
 import com.example.apitask.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
             userEnt.setEmail(userDto.getEmail());
         }
         User update = userRepository.save(userEnt);
-         return  UserDto.mapToDto(update);
+        return UserDto.mapToDto(update);
     }
 
     @Override
