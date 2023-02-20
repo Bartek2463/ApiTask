@@ -1,16 +1,15 @@
 package com.example.apitask.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import lombok.*;
+import lombok.experimental.Accessors;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-
+@Accessors(chain = true, fluent = false)
+@ToString
 public class User {
 
     @Id
