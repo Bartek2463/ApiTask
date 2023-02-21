@@ -33,7 +33,7 @@ public class UserController {
         return new ResponseEntity<>(userService.saveUser(user), HttpStatus.CREATED);
     }
 
-    @GetMapping("/findUser/{userName}")
+    @GetMapping("/findUser/{userName}")//find by Last name
     public ResponseEntity<?> getUserByName(@PathVariable("userName")String userName){
 
         Optional<User> byLastname = userService.findByLastname(userName);
@@ -44,7 +44,7 @@ public class UserController {
         return new ResponseEntity<>(userDto,HttpStatus.OK);
 
     }
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")//delete user if It exists
 
     public ResponseEntity<?> deleteUserById(@PathVariable("id")Long id){
         Optional<User> userById = userService.findUserById(id);
