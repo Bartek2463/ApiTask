@@ -1,6 +1,6 @@
 package com.example.apitask.repository;
 
-import com.example.apitask.model.User;
+import com.example.apitask.model.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

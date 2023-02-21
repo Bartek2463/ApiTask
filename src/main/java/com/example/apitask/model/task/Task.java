@@ -1,9 +1,9 @@
-package com.example.apitask.model;
+package com.example.apitask.model.task;
 
+import com.example.apitask.model.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.Accessors;
-import org.hibernate.annotations.Table;
 
 import java.time.LocalDate;
 import java.util.LinkedList;
@@ -12,7 +12,6 @@ import java.util.LinkedList;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-
 @Accessors(chain = true, fluent = false)
 @ToString
 public class Task {

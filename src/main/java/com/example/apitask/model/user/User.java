@@ -1,5 +1,6 @@
-package com.example.apitask.model;
+package com.example.apitask.model.user;
 
+import com.example.apitask.model.task.Task;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.Accessors;

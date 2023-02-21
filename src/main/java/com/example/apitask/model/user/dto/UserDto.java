@@ -1,8 +1,10 @@
-package com.example.apitask.model.dto;
+package com.example.apitask.model.user.dto;
 
-import com.example.apitask.model.User;
+import com.example.apitask.model.user.User;
 import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.util.LinkedList;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,7 +30,8 @@ public class UserDto {
         return  new User()
                 .setFirstname(userDto.getFirstName())
                 .setLastname(userDto.getLastName())
-                .setEmail(userDto.getEmail());
+                .setEmail(userDto.getEmail())
+                .setTasks(new LinkedList<>());
     }
 
 }

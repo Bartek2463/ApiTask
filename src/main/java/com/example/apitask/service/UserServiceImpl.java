@@ -1,7 +1,7 @@
 package com.example.apitask.service;
 
-import com.example.apitask.model.User;
-import com.example.apitask.model.dto.UserDto;
+import com.example.apitask.model.user.User;
+import com.example.apitask.model.user.dto.UserDto;
 import com.example.apitask.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
