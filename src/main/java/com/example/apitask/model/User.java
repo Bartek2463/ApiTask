@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.Accessors;
 
+import java.util.LinkedList;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,6 +28,14 @@ public class User {
 
     @Column(name = "email", nullable = false)
     private String email;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "user_task",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name="task_id")
+    )
+    private LinkedList<Task> tasks = new LinkedList<>();
 
 
 }
