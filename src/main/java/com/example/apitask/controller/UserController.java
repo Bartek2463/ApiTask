@@ -2,12 +2,15 @@ package com.example.apitask.controller;
 
 import com.example.apitask.exception.ElementAlredyExistsException;
 import com.example.apitask.model.User;
+import com.example.apitask.model.dto.UserDto;
 import com.example.apitask.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -33,7 +36,16 @@ public class UserController {
     @GetMapping("/findUser/{userName}")
     public ResponseEntity<?> getUserByName(@PathVariable("userName")String userName){
 
+        Optional<User> byLastname = userService.findByLastname(userName);
+        if(byLastname.isEmpty())
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        User user = byLastname.get();
+        UserDto userDto = UserDto.mapToDto(user);
+        return new ResponseEntity<>(userDto,HttpStatus.OK);
+
     }
+    @DeleteMapping("/delete/{id}")
+
 
 
 }
