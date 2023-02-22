@@ -29,10 +29,18 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public TaskDto update(Long id, TaskDto dto) {
+        Task task= null;
         Optional<Task> tasksById = taskRepository.findTasksById(id);
         if(tasksById.isPresent()){
-
+            task = tasksById.get();
+            task.setTitle(dto.getTitle());
+            task.setDescription(dto.getDescription());
+            task.setStatus(dto.getStatus());
+            task.setDedline(dto.getDedline());
+            task.setUsers(dto.getUsers());
         }
+        Task save = taskRepository.save(task);
+        return TaskDto.mapToDto(save);
     }
 
     @Override
