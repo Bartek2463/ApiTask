@@ -8,8 +8,8 @@ import java.util.Optional;
 
 public interface TaskService {
 
-    TaskDto save(UserDto userDto, Long id);
-    Optional<Task> findById(Long id);
+    TaskDto save(Task task);
     void delete(Long id);
     TaskDto update(Long id,TaskDto dto);
+    Optional<Task> findByUsername(String username);
 }

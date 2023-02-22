@@ -2,6 +2,7 @@ package com.example.apitask.model.task.dto;
 
 import com.example.apitask.model.task.Task;
 import com.example.apitask.model.user.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.Accessors;
 
@@ -21,6 +22,8 @@ public class TaskDto {
     private String description;
     private Boolean status;
     private LocalDate dedline;
+    @JsonIgnore
+    private LinkedList<User> users;
 
     public static Task mapToModel(TaskDto dto){
         return new Task()
@@ -39,7 +42,8 @@ public class TaskDto {
                 .setTitle(task.getTitle())
                 .setDescription(task.getDescription())
                 .setStatus(task.getStatus())
-                .setDedline(task.getDedline());
+                .setDedline(task.getDedline())
+                .setUsers(task.getUsers());
 
     }
 
