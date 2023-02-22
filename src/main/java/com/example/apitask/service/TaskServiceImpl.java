@@ -3,17 +3,19 @@ package com.example.apitask.service;
 import com.example.apitask.model.task.Task;
 import com.example.apitask.model.task.dto.TaskDto;
 import com.example.apitask.repository.TaskRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+
+@Service
+@RequiredArgsConstructor
 
 public class TaskServiceImpl implements TaskService {
 
     @Autowired
     private TaskRepository taskRepository;
-    @Autowired
-    private UserService userService;
-
 
     @Override
     public TaskDto save(Task task) {
@@ -29,9 +31,9 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public TaskDto update(Long id, TaskDto dto) {
-        Task task= null;
+        Task task = null;
         Optional<Task> tasksById = taskRepository.findTasksById(id);
-        if(tasksById.isPresent()){
+        if (tasksById.isPresent()) {
             task = tasksById.get();
             task.setTitle(dto.getTitle());
             task.setDescription(dto.getDescription());
