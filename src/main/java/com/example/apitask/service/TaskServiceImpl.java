@@ -46,7 +46,12 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Optional<Task> findByUsername(String username) {
+    public Optional<Task> findByTaskName(String username) {
         return taskRepository.findTaskByName(username);
+    }
+
+    @Override
+    public Optional<Task> findById(Long taskId) {
+        return taskRepository.findTasksById(taskId);
     }
 }
